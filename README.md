@@ -4,7 +4,7 @@ Accepted at *IEEE Conference on Computer Vision and Pattern Recognition (CVPR-20
 
 ## Overview
 The approach aims to reconstruct 3D point clouds from a single 2D view of the object using just image and silhouette collection as supervision. A single image (and mask) are used per 3D model during training. To avoid degenerate solutions, we propose the novel geometric and pose cycle consistency losses. Along with nearest neighbour consistency loss, these help in obtaining effective 3D reconstructions similar to those obtained using higher degree of supervision. 
-![](overview.png)
+![](overview.PNG)
 
 ## Dataset
 We use the ShapeNet dataset in our experiments. We use the <a href="https://github.com/shubhtuls/drc/blob/master/docs/snet.md#rendering" target="_blank" >code</a> provided by Tulsiani et al. to obtain the rendered images and part segmentation maps. Download links for the ShapeNet point cloud dataset is provided below: <br>
