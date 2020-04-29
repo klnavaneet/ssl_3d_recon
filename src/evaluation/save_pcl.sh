@@ -1,0 +1,11 @@
+python save_pcl.py \
+	--exp ../../expts/temp\
+	--gpu 1 \
+	--dataset shapenet\
+	--pred_disp \
+	--categ car\
+	--batch_size 1 \
+	--N_PROJ 1 \
+	--save_n 1 \
+	--load_model \
+	--print_n 10

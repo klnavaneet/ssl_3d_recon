@@ -19,10 +19,10 @@ save_pose = False
 
 dataset = 'shapenet'
 if save_img or save_pose:
-    data_dir = '/data/navaneet/3DR/3DRModels/ShapeNet_drc_64_rendered'
+    data_dir = '../../data/ShapeNet_rendered'
 elif save_pcl:
-    data_dir = '/data/navaneet/3DR/3DRModels/ShapeNet_v1'
-out_dir = '/data/navaneet/projects/recon_3d/recon_3d_unsupervised/data'
+    data_dir = '../../data/ShapeNet_v1'
+out_dir = '../../data'
 if not os.path.exists(out_dir):
     os.makedirs(out_dir)
 
@@ -85,7 +85,7 @@ for mode in modes:
         print categ
         overwrite = True
 
-        models = np.load('images_list_%s_%s.npy'%(categ, mode))
+        models = np.load('../../splits/images_list_%s_%s.npy'%(categ, mode))
         image_ids = [model[0].split('_')[1] for model in models]
         models = [model[0].split('_')[0] for model in models]
         if save_img:

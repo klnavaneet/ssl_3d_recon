@@ -17,8 +17,8 @@ import scipy.misc as sc
 
 from helper_funcs import create_folder
 
-data_dir = '/data/navaneet/3DR/3DRModels/ShapeNet_drc_64_rendered'
-data_dir_pcl = '/data/navaneet/3DR/3DRModels/ShapeNet_v1'
+data_dir = '../../data/ShapeNet_rendered'
+data_dir_pcl = '../../data/ShapeNet_v1'
 categs = ['02691156', '02958343', '03001627']
 
 out_data_dir = '../../data/train_images'

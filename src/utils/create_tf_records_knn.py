@@ -35,10 +35,10 @@ views = 5
 k_range = 6
 
 if save_img or save_mask or save_pose:
-    data_dir = '../../../../../3DR/3DRModels/ShapeNet_drc_64_rendered'
+    data_dir = '../../data/ShapeNet_rendered'
 elif save_pcl:
-    data_dir = '../../../../../3DR/3DRModels/ShapeNet_v1'
-out_dir = '../../expts/airplane/1_image_noaffinity/enc_log_feat_trainfrom4L/latent_layer'
+    data_dir = '../../data/ShapeNet_v1'
+out_dir = '../../expts/temp/enc_log_feat_trainfrom4L/latent_layer'
 if not os.path.exists(out_dir):
     os.makedirs(out_dir)
 
@@ -184,7 +184,7 @@ for mode in modes:
         print categ
         overwrite = True
         names_file = join(out_dir, '15nn_list_for_tfrecord_final.npy')
-        models = np.load('images_list_%s_%s.npy' % (categ, mode))
+        models = np.load('../../splits/images_list_%s_%s.npy' % (categ, mode))
         image_ids = [model[0].split('_')[1] for model in models]
         models = [model[0].split('_')[0] for model in models]
         if save_similar:

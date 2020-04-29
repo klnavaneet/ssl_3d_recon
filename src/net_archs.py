@@ -1,7 +1,6 @@
 import sys, os
 import tensorflow as tf
 from os.path import abspath
-import pdb
 
 import tflearn
 from tflearn.layers.conv import conv_2d

@@ -113,7 +113,7 @@ categ = shapenet_category_to_id[args.categ]
 mode = 'train'
 
 print 'Full Shapnet Data'
-data_dir = '../../../3DR/3DRModels/ShapeNet_drc_64_rendered/%s'%categ
+data_dir = './data/ShapeNet_rendered/%s'%categ
 tfrecords_file_rgb = './data/%s_%s_image_similar_2img.tfrecords'%(categ, mode)
 tfrecords_file_mask = './data/%s_%s_mask_similar_2img.tfrecords'%(categ, mode)
 tfrecords_file_pose = './data/%s_%s_pose.tfrecords'%(categ, mode)

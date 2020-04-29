@@ -113,7 +113,7 @@ categ = shapenet_category_to_id[args.categ]
 mode = 'train'
 
 print 'Full Shapnet Data'
-data_dir = '../../../3DR/3DRModels/ShapeNet_drc_64_rendered/%s' % categ
+data_dir = './data/ShapeNet_rendered/%s' % categ
 tfrecords_file_rgb = './data/%s_%s_image.tfrecords' % (categ, mode)
 tfrecords_file_mask = './data/%s_%s_mask.tfrecords' % (categ, mode)
 tfrecords_file_pose = './data/%s_%s_pose.tfrecords' % (categ, mode)
@@ -127,8 +127,7 @@ else:
     dtypes = ['rgb', 'mask', 'pose']
 
 
-#models = sorted(os.listdir(data_dir))
-models = np.load('src/utils/images_list_%s_%s.npy'%(categ, mode))
+models = np.load('splits/images_list_%s_%s.npy'%(categ, mode))
 shuffle_len = len(models)
 print 'Train Categ: ', shapenet_id_to_category[categ], 'Train Models: ', shuffle_len
 

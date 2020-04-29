@@ -4,7 +4,6 @@
 
 import tensorflow as tf
 import numpy as np
-import pdb
 
 
 def cont_proj(pcl, grid_h, grid_w, N_pts, sigma_sq=0.5):

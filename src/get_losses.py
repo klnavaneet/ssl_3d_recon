@@ -2,12 +2,12 @@
 #                       Calculate loss values
 ##############################################################################
 
-import tensorflow as tf
-import tf_nndistance
-from tf_auctionmatch import auction_match
 import numpy as np
 from scipy.spatial.distance import cdist as np_cdist
-import pdb
+import tensorflow as tf
+
+import tf_nndistance
+from tf_auctionmatch import auction_match
 
 
 def get_img_loss(gt, pred, mode='l2_sq', affinity_loss=False):
