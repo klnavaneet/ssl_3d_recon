@@ -10,7 +10,13 @@ The approach aims to reconstruct 3D point clouds from a single 2D view of the ob
 We use the ShapeNet dataset in our experiments. We use the <a href="https://github.com/shubhtuls/drc/blob/master/docs/snet.md#rendering" target="_blank" >code</a> provided by Tulsiani et al. to obtain the rendered images and part segmentation maps. Download links for the ShapeNet point cloud dataset is provided below: <br>
 ShapeNet pointclouds (~2.8 GB): https://drive.google.com/open?id=1cfoe521iTgcB_7-g_98GYAqO553W8Y0g <br>
 
-Download the the folder, extract and move it into *data/*. Save the rendered images in *data/ShapeNet_rendered/*.<br>
+Download the the folder, extract and move it into *data/*. Save the rendered images in *data/ShapeNet_rendered/*. Then run the code to create tfrecords files using appropriate changes in the code (set each of image, mask, pose and pcl to True as documented in the code).<br>
+```shell
+cd src/utils
+python create_tf_records.py
+python create_tf_records_knn.py
+python read_tf_records.py
+```
 
 ## Usage
 
