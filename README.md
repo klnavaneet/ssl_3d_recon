@@ -50,12 +50,14 @@ bash multiple_mask_run.sh
 
 You first need to save the point cloud outputs. Since the orientation of the predicted point clouds can be different from the canonical orientation of the ground truth point clouds, the predictions need to be aligned with the ground truth. Make appropriate changes in the codes to ensure correct experiment directories are used in saving and aligning point clouds. 
 ```shell
+cd src/evaluation
 bash save_pcl.sh
 python align_pcl_transform.py
 ```
 
 You can then calculate the metrics or visualize the point cloud outputs.
 ```shell
+cd src/evaluation
 bash pcl_loss_saved.sh
 python visualize_pcl_3d.py
 ```
