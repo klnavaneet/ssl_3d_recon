@@ -21,10 +21,15 @@ python read_tf_records.py
 ## Usage
 
 Install [TensorFlow](https://www.tensorflow.org/install/). We recommend installing version 1.3 so that the additional TensorFlow ops can be compiled. <br>
-Clone the repository:
 ```shell
+# Clone the repository:
 git clone https://github.com/klnavaneet/ssl_3d_recon.git
 cd ssl_3d_recon
+```
+You need to compile the tensorflow ops to calculate Chamfer and EMD metrics and to visualize point clouds. Run the makefile to compile. Change the paths for nvcc, cudalib and tensorflow appropriately in the makefile. <br>
+```shell
+# Compile tensorflow ops:
+make
 ```
 
 ### Training
