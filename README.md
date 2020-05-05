@@ -6,18 +6,6 @@ Accepted at *IEEE Conference on Computer Vision and Pattern Recognition (CVPR-20
 The approach aims to reconstruct 3D point clouds from a single 2D view of the object using just image and silhouette collection as supervision. A single image (and mask) are used per 3D model during training. To avoid degenerate solutions, we propose the novel geometric and pose cycle consistency losses. Along with nearest neighbour consistency loss, these help in obtaining effective 3D reconstructions similar to those obtained using higher degree of supervision. 
 ![](overview.PNG)
 
-## Dataset
-We use the ShapeNet dataset in our experiments. We use the <a href="https://github.com/shubhtuls/drc/blob/master/docs/snet.md#rendering" target="_blank" >code</a> provided by Tulsiani et al. to obtain the rendered images and part segmentation maps. Download links for the ShapeNet point cloud dataset is provided below: <br>
-ShapeNet pointclouds (~2.8 GB): https://drive.google.com/open?id=1cfoe521iTgcB_7-g_98GYAqO553W8Y0g <br>
-
-Download the the folder, extract and move it into *data/*. Save the rendered images in *data/ShapeNet_rendered/*. Then run the code to create tfrecords files using appropriate changes in the code (set each of image, mask, pose and pcl to True as documented in the code).<br>
-```shell
-cd src/utils
-python create_tf_records.py
-python create_tf_records_knn.py
-python read_tf_records.py
-```
-
 ## Usage
 
 Install [TensorFlow](https://www.tensorflow.org/install/). We recommend installing version 1.3 so that the additional TensorFlow ops can be compiled. <br>
@@ -30,6 +18,21 @@ You need to compile the tensorflow ops to calculate Chamfer and EMD metrics and 
 ```shell
 # Compile tensorflow ops:
 make
+```
+
+## Dataset
+We use the ShapeNet dataset in our experiments. We use the <a href="https://github.com/shubhtuls/drc/blob/master/docs/snet.md#rendering" target="_blank" >code</a> provided by Tulsiani et al. to obtain the rendered images and part segmentation maps. Download links for the ShapeNet point cloud dataset is provided below: <br>
+ShapeNet pointclouds (~2.8 GB): https://drive.google.com/open?id=1cfoe521iTgcB_7-g_98GYAqO553W8Y0g <br>
+
+Download the the folder, extract and move it into *data/*. The directory for point clouds is *data/ShapeNet_v1/*. Save the rendered images in *data/ShapeNet_rendered/*. Then run the code to create tfrecords files using appropriate changes in the code (set each of image, mask, pose and pcl to True as documented in the code).<br>
+```shell
+cd src/utils
+# Create tfrecords file for OURS-CC model
+python create_tf_records.py
+# Create tfrecords file for OURS-NN model
+python create_tf_records_knn.py
+# Verify the created tfrecords file
+python read_tf_records.py
 ```
 
 ### Training
@@ -51,13 +54,16 @@ bash multiple_mask_run.sh
 You first need to save the point cloud outputs. Since the orientation of the predicted point clouds can be different from the canonical orientation of the ground truth point clouds, the predictions need to be aligned with the ground truth. Make appropriate changes in the codes to ensure correct experiment directories are used in saving and aligning point clouds. 
 ```shell
 cd src/evaluation
+# Save output point clouds
 bash save_pcl.sh
+# Align point clouds with ground truth
 python align_pcl_transform.py
 ```
 
 You can then calculate the metrics or visualize the point cloud outputs.
 ```shell
 cd src/evaluation
+# Calculate loss and visualize 3D outputs
 bash pcl_loss_saved.sh
 python visualize_pcl_3d.py
 ```
