@@ -44,11 +44,11 @@ if not os.path.exists(out_dir):
 
 sim_data_dir = '../../data/train_images/03001627/train_similar'
 rand_file = ('%s/rand_file_list_%dviews.npy' % (out_dir, views))
-#categs = ['02691156', '02958343', '03001627']
-categs = ['02691156']
+categs = ['02691156', '02958343', '03001627']
+#categs = ['02691156']
 
-#modes = ['train', 'val', 'test']
-modes = ['train']
+modes = ['train', 'val', 'test']
+#modes = ['train']
 
 
 def create_class_dict(data_dir):
@@ -183,7 +183,7 @@ for mode in modes:
     for categ in categs:
         print categ
         overwrite = True
-        names_file = join(out_dir, '15nn_list_for_tfrecord_final.npy')
+        names_file = '../../data/knn_list_%s.npy' % categ
         models = np.load('../../splits/images_list_%s_%s.npy' % (categ, mode))
         image_ids = [model[0].split('_')[1] for model in models]
         models = [model[0].split('_')[0] for model in models]
