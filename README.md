@@ -41,7 +41,7 @@ bash run.sh
 ```
 
 #### Complete model training (OURS-NN Model)
-Train the model using all losses - geometric and pose consistency and nearest neighbour loss. This corresponds to the OURS-NN model referred to in the paper. Adjust the hyperparameters as necessary. This requires training the OURS-CC model first to obtain the nearest neighbours. The default hyperparameters used for the first stage of training are provided in the bash script.
+Train the model using all losses - geometric and pose consistency and nearest neighbour loss. This corresponds to the OURS-NN model referred to in the paper. Adjust the hyperparameters as necessary. We have provided the file to automatically load the nearest neighbour images. You can also use custom neighbours by training the OURS-CC model first to obtain the nearest neighbours or by manually defining the neighbours. The default hyperparameters used for the first stage of training are provided in the bash script.
 ```shell
 bash multiple_mask_run.sh
 ```
